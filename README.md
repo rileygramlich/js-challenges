@@ -10,11 +10,11 @@ During your 12 weeks in WDI, your instructors will be helping you learn tons of 
 - Instructor/student code alongs
 - In-lesson student exercises
 
-However, true learning doesn't take place until students practice what they've been taught. In fact, it's not uncommon for students to take 7 to 10 days of applying a particular concept before they are truely "comfortable" with it.
+However, true learning doesn't take place until students practice what they've been taught. In fact, it's not uncommon for students to take 7 to 10 days of applying a particular concept before they are truly "comfortable" with it.
 
 To provide practice in class, many lessons are followed with post-lesson labs. And of course, there's project week, where students often say they learn the most.
 
-To provide additional practice writing JavaScript functions to solve a specific task, you will be required to complete one code challenge per day.
+To provide additional practice writing JavaScript functions to solve a specific task, you will be required to complete one code challenge per day, excluding project weeks (4 weeks X 5 days/wk = 20 days of no code challenges).
 
 These code challenges are considered homework, and thus 80% of them must be completed in combination with other deliverable homework in order to receive a Certificate of Completion.
 
