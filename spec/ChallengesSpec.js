@@ -78,7 +78,7 @@ describe("06-range", function () {
 
 describe("07-reverseUpcaseString", function () {
   it("returns string reversed and upcased", function () {
-    expect(reverseUpcaseString("WDI Rocks!")).toBe("!SKCOR IDW");
+    expect(reverseUpcaseString("SEI Rocks!")).toBe("!SKCOR IES");
   });
 });
 

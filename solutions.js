@@ -230,7 +230,7 @@ Prompt:
 
 Examples:
 
-reverseUpcaseString("WDI Rocks!"); //=> "!SKCOR IDW" 
+reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES" 
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
@@ -269,7 +269,7 @@ Prompt:
 
 Examples:
 
-removeEnds('WDI Rocks!'); //=> "DI Rocks"
+removeEnds('SEI Rocks!'); //=> "DI Rocks"
 removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
@@ -385,7 +385,7 @@ Prompt:
 
 Examples:
 
-isPalindrome('WDI Rocks'); //=> false
+isPalindrome('SEI Rocks'); //=> false
 isPalindrome('rotor'); //=> true
 isPalindrome('A nut for a jar of tuna'); //=> true
 isPalindrome(''); //=> true
