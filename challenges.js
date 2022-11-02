@@ -1,3 +1,5 @@
+console.log('connected')
+
 /*-----------------------------------------------------------------
 Challenge: 00-sayHello (example)
 
@@ -112,8 +114,16 @@ add(7,-12) //=> -5
 -----------------------------------------------------------------*/
 // Your solution for 04-addList here:
 
+function addList(...args) {
+  let total = 0
+  args.forEach((num) => {
+    total += num
+  })
+  return total
+}
 
-
+args = [5, 3, 2]
+console.log(addList(5, 3, 2))
 
 
 /*-----------------------------------------------------------------
