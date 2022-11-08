@@ -43,7 +43,6 @@ function addOne(num) {
   return (num + 1)
 }
 
-console.log(addOne('Hello5'))
 
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
@@ -178,8 +177,19 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------*/
 // Your solution for 06-range here:
 
+function range(smaller, larger) {
+  if (larger < smaller) {
+    return "First argument must be less than second"
+  } else {
+    let array = []
+    while (smaller < larger) {
+      array.push(smaller++)
+    }
+    return array
+  }
+}
 
-
+console.log(range(2, 8))
 
 
 /*-----------------------------------------------------------------
