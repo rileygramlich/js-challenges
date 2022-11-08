@@ -37,9 +37,13 @@ addOne(-5) //=> -4
 // Your solution for 01-addOne here:
 
 function addOne(num) {
+  if (isNaN(num)) {
+    return NaN
+  }
   return (num + 1)
 }
 
+console.log(addOne('Hello5'))
 
 /*-----------------------------------------------------------------
 Challenge: 02-addTwoNumbers
@@ -61,7 +65,7 @@ addTwoNumbers('Hello', 5) //=> NaN
 // Your solution for 02-addTwoNumbers here:
 
 function addTwoNumbers(x, y) {
-  return (x + y)
+  return x + y
 }
 
 
@@ -122,8 +126,7 @@ function addList(...args) {
   return total
 }
 
-args = [5, 3, 2]
-console.log(addList(5, 3, 2))
+// console.log(addList(5, 3, 2))
 
 
 /*-----------------------------------------------------------------
@@ -146,8 +149,14 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
 
-
-
+function computeRemainder(dividend, divisor) {
+  let quotient = Math.floor(dividend / divisor)
+  if (divisor == 0) {
+    return Infinity
+  } else {
+    return dividend - (divisor * quotient)
+  }
+}
 
 
 /*-----------------------------------------------------------------
