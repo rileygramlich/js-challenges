@@ -232,8 +232,12 @@ removeEnds('a'); //=> "" (empty string)
 -----------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 
+function removeEnds(string) {
+  newString = string.slice(1, string.length-1)
+  return newString
+}
 
-
+console.log(removeEnds('piano'))
 
 
 /*-----------------------------------------------------------------
