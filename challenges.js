@@ -189,8 +189,6 @@ function range(smaller, larger) {
   }
 }
 
-console.log(range(2, 8))
-
 
 /*-----------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
@@ -207,9 +205,16 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 -----------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
+function reverseUpcaseString(string) {
+  reverseString = ''
+  for (let i = string.length - 1; i >= 0; i--) {
+    reverseString += string[i]
+    console.log(reverseString)
+  }
+  return reverseString
+}
 
-
-
+console.log(reverseUpcaseString("piano"))
 
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
