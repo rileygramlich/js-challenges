@@ -213,7 +213,7 @@ function reverseUpcaseString(string) {
   return reverseString
 }
 
-console.log(reverseUpcaseString("piano"))
+// console.log(reverseUpcaseString("piano"))
 
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
@@ -237,7 +237,7 @@ function removeEnds(string) {
   return newString
 }
 
-console.log(removeEnds('piano'))
+// console.log(removeEnds('piano'))
 
 
 /*-----------------------------------------------------------------
@@ -259,8 +259,15 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 -----------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
+function charCount(string) {
+  let count = {}
+  for (let i = 0; i < string.length; i++) {
+    count[string[i]] ? count[string[i]] = count[string[i]] + 1 : count[string[i]] = 1
+  }
+  return count
+}
 
-
+console.log(charCount('Hello'))
 
 
 /*-----------------------------------------------------------------
