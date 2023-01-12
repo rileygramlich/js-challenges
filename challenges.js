@@ -267,7 +267,7 @@ function charCount(string) {
   return count
 }
 
-console.log(charCount('Hello'))
+// console.log(charCount('Hello'))
 
 
 /*-----------------------------------------------------------------
@@ -292,8 +292,18 @@ formatWithPadding(1234, '*', 3); //=> "1234"
 -----------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 
+function formatWithPadding(int, pad, len) {
+  if (int.toString().length >= len) {
+    return int.toString()
+  }
+  else {
+    len = (len - int.toString().length)
+    let string = pad.repeat(len) + int.toString()
+    return string
+  }
+}
 
-
+console.log(formatWithPadding(20000, '%', 5))
 
 
 /*-----------------------------------------------------------------
