@@ -303,7 +303,7 @@ function formatWithPadding(int, pad, len) {
   }
 }
 
-console.log(formatWithPadding(20000, '%', 5))
+// console.log(formatWithPadding(20000, '%', 5))
 
 
 /*-----------------------------------------------------------------
@@ -327,7 +327,34 @@ isPalindrome(''); //=> true
 -----------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
+function isPalindrome(string) {
+  length = string.length
+  if (length <= 1) {
+    return true
+  } else if ((length % 2) === 0) {
+    first_half = string.substring(0, length / 2)
+    second_half = string.substring(length / 2, length)
+    reverse_second_half = second_half.split("").reverse().join("")
+    if (first_half === reverse_second_half) {
+      return true
+    } else {
+      return false
+    }
+  } else {
+    first_half = string.substring(0, length / 2)
+    second_half = string.substring(length / 2 + 1, length)
+    reverse_second_half = second_half.split("").reverse().join("")
+    console.log(first_half, second_half)
+    if (first_half === reverse_second_half) {
+      return true
+    } else {
+      return false
+    }
+  }
+}
 
+// "rottor"
+console.log(isPalindrome('rotdtsor'))
 
 
 
