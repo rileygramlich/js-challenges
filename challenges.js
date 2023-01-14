@@ -397,7 +397,7 @@ function hammingDistance(str1, str2) {
 }
 
 
-console.log(hammingDistance('****', '!!!'))
+// console.log(hammingDistance('****', '!!!'))
 
 
 
@@ -421,8 +421,16 @@ mumble('!A 2'); //=> '!-AA-   -2222'
 -----------------------------------------------------------------*/
 // Your solution for 13-mumble here:
 
+function mumble(str) {
+  str = str.split('')
+  let arr = []
+  str.forEach((char, index) => {
+    arr[index] = char.repeat(index + 1)
+  })
+  return (arr.join('-'))
+}
 
-
+console.log(mumble('XY'))
 
 
 /*-----------------------------------------------------------------
