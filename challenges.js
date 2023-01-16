@@ -455,11 +455,8 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sal
 function fromPairs(array) {
   let obj = {}
   array.forEach(pair => {
-    console.log(pair[0], pair[1])
-    let a = pair[0]
-    let b = pair[1]
-    obj.a = b
-    console.log(obj)
+    let [key, value] = pair
+    obj[key] = value
   })
   return obj
 }
