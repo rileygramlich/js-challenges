@@ -430,7 +430,7 @@ function mumble(str) {
   return (arr.join('-'))
 }
 
-console.log(mumble('XY'))
+// console.log(mumble('XY'))
 
 
 /*-----------------------------------------------------------------
@@ -452,8 +452,19 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sal
 // Your solution for 14-fromPairs here:
 
 
+function fromPairs(array) {
+  let obj = {}
+  array.forEach(pair => {
+    console.log(pair[0], pair[1])
+    let a = pair[0]
+    let b = pair[1]
+    obj.a = b
+    console.log(obj)
+  })
+  return obj
+}
 
-
+console.log(fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]))
 
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
