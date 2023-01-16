@@ -482,21 +482,19 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c:
 // Your solution for 15-mergeObjects here:
 
 function mergeObjects() {
-  console.log(arguments)
   let args = Array.from(arguments)
-  console.log(args)
   let mainObj = args[0]
 for (let i = 1; i < args.length; i++) {
   for (key in args[i]) {
     let curObj = args[i]
     let value = curObj[key]
     mainObj[key] = value
-    console.log(mainObj)
   }
+  return mainObj
 }
 }
 
-console.log(mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}, {hi: 700}))
+// console.log(mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}, {hi: 700}))
 
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
@@ -531,8 +529,26 @@ findHighestPriced([
 -----------------------------------------------------------------*/
 // Your solution for 16-findHighestPriced here:
 
+function findHighestPriced(products) {
+  let highest = 0
+  products.forEach(product => {
+    let price = product['price']
+    if (price > highest) {
+      highest = price
+    }
+  })
+  let result = products.find(product => {
+    return product['price'] === highest
+  })
+  return result
+}
 
-
+// console.log(findHighestPriced([
+//   { sku: 'a1', price: 25 },
+//   { sku: 'b2', price: 5 },
+//   { sku: 'c3', price: 50 },
+//   { sku: 'd4', price: 10 }
+// ]))
 
 
 /*-----------------------------------------------------------------
