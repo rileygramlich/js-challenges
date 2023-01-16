@@ -461,7 +461,7 @@ function fromPairs(array) {
   return obj
 }
 
-console.log(fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]))
+// console.log(fromPairs([ ['a', 1], ['b', 2], ['c', 3] ]))
 
 /*-----------------------------------------------------------------
 Challenge: 15-mergeObjects
@@ -481,9 +481,22 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c:
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
 
+function mergeObjects() {
+  console.log(arguments)
+  let args = Array.from(arguments)
+  console.log(args)
+  let mainObj = args[0]
+for (let i = 1; i < args.length; i++) {
+  for (key in args[i]) {
+    let curObj = args[i]
+    let value = curObj[key]
+    mainObj[key] = value
+    console.log(mainObj)
+  }
+}
+}
 
-
-
+console.log(mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}, {hi: 700}))
 
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
