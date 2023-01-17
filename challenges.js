@@ -586,9 +586,9 @@ function mapArray(array, cb) {
   return mapped
 }
 
-console.log(mapArray( [1, 2, 3], function(n) {
-  return n * 2;
-} ))
+// console.log(mapArray( [1, 2, 3], function(n) {
+//   return n * 2;
+// } ))
 
 
 
@@ -626,9 +626,17 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 -----------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
 
+function reduceArray(array, reduce, acc) {
+  array.forEach((element, i) => {
+    acc = reduce(acc, element, i)
+  })
+  return acc
+}
 
-
-
+// console.log(reduceArray(['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
+//   acc[v] = acc[v] ? acc[v] + 1 : 1;
+//   return acc;
+// }, {} ))
 
 /*-----------------------------------------------------------------
 Challenge: 19-flatten
