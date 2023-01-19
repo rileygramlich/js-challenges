@@ -664,7 +664,7 @@ function flatten(array) {
   return array.flat(Infinity);
 }
 
-console.log(flatten([1, [2, [3, [4]]], 1, "a", ["b", "c"]]));
+// console.log(flatten([1, [2, [3, [4]]], 1, "a", ["b", "c"]]));
 
 /*-----------------------------------------------------------------
 Challenge: 20-isPrime
@@ -685,6 +685,19 @@ isPrime(29) //=> true
 isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
+
+
+function isPrime(num) {
+  for (let i = 2; i<num; i++) {
+    if ((num % i) === 0) {
+      return false
+    }
+  }
+  return true
+}
+
+
+// console.log(isPrime(67))
 
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
