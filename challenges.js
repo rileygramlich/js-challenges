@@ -736,7 +736,7 @@ function primeFactors(num) {
   return arrayOfPrimes
 }
 
-console.log(primeFactors(105))
+// console.log(primeFactors(105))
 
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
@@ -758,6 +758,14 @@ intersection(['a', 1], [true, 'a', 15]) //=> ['a']
 intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------*/
 // Your solution for 22-intersection here:
+
+function intersection(array1, array2) {
+  let newArray = array1.filter(el => array2.includes(el))
+  console.log(newArray)
+  return newArray
+}
+
+intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1])
 
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets
