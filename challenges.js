@@ -814,7 +814,7 @@ function balancedBrackets(brackets) {
   return (stack.length == 0)
 }
 
-console.log(balancedBrackets("[{[]{}}]"));
+// console.log(balancedBrackets("[{[]{}}]"));
 
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
@@ -867,6 +867,17 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
+
+function getNumForIP(ip) {
+  let ipArray = ip.split('.').reverse()
+  let ipNum = 0
+  for (i in ipArray) {
+    ipNum += ipArray[i] * 256 ** i
+  }
+  return ipNum
+}
+
+console.log(getNumForIP('10.0.0.1'))
 
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
