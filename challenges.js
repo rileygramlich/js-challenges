@@ -686,16 +686,14 @@ isPrime(200) //=> false
 -----------------------------------------------------------------*/
 // Your solution for 20-isPrime here:
 
-
 function isPrime(num) {
-  for (let i = 2; i<num; i++) {
-    if ((num % i) === 0) {
-      return false
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
     }
   }
-  return true
+  return true;
 }
-
 
 // console.log(isPrime(67))
 
@@ -723,17 +721,16 @@ primeFactors(200) //=> [2, 2, 2, 5, 5]
 -----------------------------------------------------------------*/
 // Your solution for 21-primeFactors here:
 
-
 function primeFactors(num) {
-  let arrayOfPrimes = []
-    for (let i = 2; i < num; i++) {
-      if ((num % i) === 0) {
-        if (isPrime(i)) {
-        arrayOfPrimes.push(i)
-        }
+  let arrayOfPrimes = [];
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      if (isPrime(i)) {
+        arrayOfPrimes.push(i);
       }
     }
-  return arrayOfPrimes
+  }
+  return arrayOfPrimes;
 }
 
 // console.log(primeFactors(105))
@@ -760,12 +757,12 @@ intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 // Your solution for 22-intersection here:
 
 function intersection(array1, array2) {
-  let newArray = array1.filter(el => array2.includes(el))
-  console.log(newArray)
-  return newArray
+  let newArray = array1.filter((el) => array2.includes(el));
+  console.log(newArray);
+  return newArray;
 }
 
-intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1])
+// intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1])
 
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets
@@ -788,6 +785,36 @@ balancedBrackets( '[(])' ) // => false
 balancedBrackets( '[({}[])]' ) // => true
 -----------------------------------------------------------------*/
 // Your solution for 23-balancedBrackets here:
+
+// First instinct: have an array loop, boolean value
+
+function balancedBrackets(brackets) {
+  let stack = [];
+  for (let i = 0; i < brackets.length; i++) {
+    let brac = brackets[i];
+    if (brac == "(" || brac == "[" || brac == "{") {
+      stack.push(brac);
+      continue;
+    }
+    if (stack.length == 0) return false;
+    let curr = stack.pop();
+    console.log(curr);
+    if (brac == ")") {
+      if (curr == "[" || curr == "{") return false;
+      break;
+    } else if (curr == "]") {
+      if (curr == "(" || curr == "{") return false;
+      break;
+    } else if (curr == "}") {
+      if (curr == "[" || curr == "(") return false;
+      break;
+    }
+  }
+  console.log(stack);
+  return (stack.length == 0)
+}
+
+console.log(balancedBrackets("[{[]{}}]"));
 
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
