@@ -842,6 +842,27 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 24-isWinningTicket here:
 
+function isWinningTicket(tickets) {
+  let str = ''
+  let validArray = []
+  for (i in tickets) {
+    str = tickets[i][0]
+    for (j in str) {
+      let code = str[j].charCodeAt()
+      if (code === tickets[i][1]) {
+        if (validArray.includes(str)) {
+          continue
+        } else validArray.push(str)
+      }
+    }
+    if (!validArray.includes(str)) return false
+  }
+  return true
+}
+
+
+// console.log(isWinningTicket([ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ))
+
 /*-----------------------------------------------------------------
 Challenge: 25-getNumForIP
 
@@ -877,7 +898,7 @@ function getNumForIP(ip) {
   return ipNum
 }
 
-console.log(getNumForIP('10.0.0.1'))
+// console.log(getNumForIP('10.0.0.1'))
 
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
