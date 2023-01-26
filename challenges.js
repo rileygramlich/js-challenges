@@ -923,6 +923,19 @@ toCamelCase( 'A_b_c' ) // => 'ABC'
 -----------------------------------------------------------------*/
 // Your solution for 26-toCamelCase here:
 
+function toCamelCase(string) {
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === '-' || string[i] === '_') {
+      string = string.replace(string[i+1], string[i + 1].toUpperCase())
+    }
+  }
+  string = string.replace(/-/g, '')
+  string = string.replace(/_/g, '')
+  return string
+}
+
+// console.log(toCamelCase('wdi-rocks'))
+
 /*-----------------------------------------------------------------
 Challenge: 27-countTheBits
 
