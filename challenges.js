@@ -811,7 +811,7 @@ function balancedBrackets(brackets) {
     }
   }
   console.log(stack);
-  return (stack.length == 0)
+  return stack.length == 0;
 }
 
 // console.log(balancedBrackets("[{[]{}}]"));
@@ -843,23 +843,22 @@ isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
 // Your solution for 24-isWinningTicket here:
 
 function isWinningTicket(tickets) {
-  let str = ''
-  let validArray = []
+  let str = "";
+  let validArray = [];
   for (i in tickets) {
-    str = tickets[i][0]
+    str = tickets[i][0];
     for (j in str) {
-      let code = str[j].charCodeAt()
+      let code = str[j].charCodeAt();
       if (code === tickets[i][1]) {
         if (validArray.includes(str)) {
-          continue
-        } else validArray.push(str)
+          continue;
+        } else validArray.push(str);
       }
     }
-    if (!validArray.includes(str)) return false
+    if (!validArray.includes(str)) return false;
   }
-  return true
+  return true;
 }
-
 
 // console.log(isWinningTicket([ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] ))
 
@@ -890,12 +889,12 @@ getNumForIP( '10.0.0.1' ) // => 167772161
 // Your solution for 25-getNumForIP here:
 
 function getNumForIP(ip) {
-  let ipArray = ip.split('.').reverse()
-  let ipNum = 0
+  let ipArray = ip.split(".").reverse();
+  let ipNum = 0;
   for (i in ipArray) {
-    ipNum += ipArray[i] * 256 ** i
+    ipNum += ipArray[i] * 256 ** i;
   }
-  return ipNum
+  return ipNum;
 }
 
 // console.log(getNumForIP('10.0.0.1'))
@@ -925,13 +924,13 @@ toCamelCase( 'A_b_c' ) // => 'ABC'
 
 function toCamelCase(string) {
   for (let i = 0; i < string.length; i++) {
-    if (string[i] === '-' || string[i] === '_') {
-      string = string.replace(string[i+1], string[i + 1].toUpperCase())
+    if (string[i] === "-" || string[i] === "_") {
+      string = string.replace(string[i + 1], string[i + 1].toUpperCase());
     }
   }
-  string = string.replace(/-/g, '')
-  string = string.replace(/_/g, '')
-  return string
+  string = string.replace(/-/g, "");
+  string = string.replace(/_/g, "");
+  return string;
 }
 
 // console.log(toCamelCase('wdi-rocks'))
@@ -962,17 +961,16 @@ countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
 
-
 function countTheBits(int) {
-  let bits = 0 
-  let binary = int.toString(2)
+  let bits = 0;
+  let binary = int.toString(2);
   for (i in binary) {
-    if (binary[i] == 1) bits++
+    if (binary[i] == 1) bits++;
   }
-  return bits
+  return bits;
 }
 
-console.log(countTheBits(255))
+// console.log(countTheBits(255))
 
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
@@ -997,6 +995,26 @@ gridTrip( [5, 10], 'D5L15U2' ) //-> [2, -5]
 gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 -----------------------------------------------------------------*/
 // Your solution for 28-gridTrip here:
+
+function gridTrip(coords, moves) {
+  let result = [coords[0], coords[1]];
+  const checker = { 'U': [0, 1], 'D': [0, -1], 'R': [1, 1], 'L': [1, -1] };
+  let i = 0;
+  while (i < moves.length) {
+    let direction = moves[i];
+    i++;
+    let units = "";
+    while ("0123456789".includes(moves[i]) && i < moves.length) {
+      units += moves[i];
+      i++;
+    }
+    result[checker[direction][0]] += units * checker[direction][1];
+  }
+  return result;
+}
+
+
+console.log(gridTrip([-22, 100], "L2L15D50U1D9"));
 
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
