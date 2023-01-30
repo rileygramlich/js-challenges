@@ -962,6 +962,18 @@ countTheBits( 65535 )  //=> 16
 -----------------------------------------------------------------*/
 // Your solution for 27-countTheBits here:
 
+
+function countTheBits(int) {
+  let bits = 0 
+  let binary = int.toString(2)
+  for (i in binary) {
+    if (binary[i] == 1) bits++
+  }
+  return bits
+}
+
+console.log(countTheBits(255))
+
 /*-----------------------------------------------------------------
 Challenge: 28-gridTrip
 
