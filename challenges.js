@@ -998,7 +998,7 @@ gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
 
 function gridTrip(coords, moves) {
   let result = [coords[0], coords[1]];
-  const checker = { 'U': [0, 1], 'D': [0, -1], 'R': [1, 1], 'L': [1, -1] };
+  const checker = { U: [0, 1], D: [0, -1], R: [1, 1], L: [1, -1] };
   let i = 0;
   while (i < moves.length) {
     let direction = moves[i];
@@ -1012,7 +1012,6 @@ function gridTrip(coords, moves) {
   }
   return result;
 }
-
 
 // console.log(gridTrip([-22, 100], "L2L15D50U1D9"));
 
@@ -1042,29 +1041,26 @@ addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
 
-
 function addChecker(array, int) {
   for (let i = 0; i < array.length; i++) {
     for (let j = array.length - 1; j >= 0; j--) {
-      if (array[i] + array[j] === int && i !== j) return true
+      if (array[i] + array[j] === int && i !== j) return true;
     }
   }
-  return false
+  return false;
 }
 
-
 function addChecker2(array, int) {
-  let end = array.length - 1
+  let end = array.length - 1;
   for (let start = 0; start < end; start++) {
-    let sum = array[start] + array[end]
-    if (sum === int) return true
-    sum < int ? start++ : end--
+    let sum = array[start] + array[end];
+    if (sum === int) return true;
+    sum < int ? start++ : end--;
   }
-  return false
+  return false;
 }
 
 // console.log(addChecker2([10, 15, 16, 22], 32 ))
-
 
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
@@ -1093,3 +1089,23 @@ totalTaskTime( [2, 2, 3, 3, 4, 4], 2 ) //=> 9
 totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 -----------------------------------------------------------------*/
 // Your solution for 30- here:
+
+// pseudo:
+// So looks like the CPU threads, allow for multiple processes to run at the same time, so therefore,
+// in the third, 2 can run at the same time, so you take inore the 5 since they ran same time,
+
+// With multiple threads, looks like we should run the largest processes first, then continue onto the others
+
+function totalTaskTime(queue, threads) {
+  if (queue.length === 0) return 0;
+  queue.sort(function (a, b) {
+    return b - a;
+  })
+  let taskTime = 0;
+  for (let i = 0; i < queue.length; i += threads) {
+    taskTime += queue[i];
+  }
+  return taskTime;
+}
+
+// console.log(totalTaskTime([4, 2, 10], 2 ));
