@@ -206,7 +206,7 @@ function reverseUpcaseString(string) {
   return reverseString.toUpperCase()
 }
 
-console.log(reverseUpcaseString("piano"))
+// console.log(reverseUpcaseString("piano"))
 
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
@@ -319,33 +319,15 @@ isPalindrome(''); //=> true
 // Your solution for 11-isPalindrome here:
 
 function isPalindrome(string) {
-  length = string.length;
-  if (length <= 1) {
-    return true;
-  } else if (length % 2 === 0) {
-    first_half = string.substring(0, length / 2);
-    second_half = string.substring(length / 2, length);
-    reverse_second_half = second_half.split("").reverse().join("");
-    if (first_half === reverse_second_half) {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    first_half = string.substring(0, length / 2);
-    second_half = string.substring(length / 2 + 1, length);
-    reverse_second_half = second_half.split("").reverse().join("");
-    console.log(first_half, second_half);
-    if (first_half === reverse_second_half) {
-      return true;
-    } else {
-      return false;
-    }
+  string = string.toLowerCase()
+  string = string.includes(' ') ? string.replace(/ /g, '') : string
+  for (let i = 0; i < Math.floor(string.length / 2); i++) {
+    if (string.charAt(i) !== string.charAt(string.length - i -1)) return false
+    return true
   }
 }
 
-// "rottor"
-// console.log(isPalindrome('rotdtsor'))
+// console.log(isPalindrome('A nut for a jar of tuna'))
 
 /*-----------------------------------------------------------------
 Challenge: 12-hammingDistance
