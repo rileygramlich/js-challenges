@@ -62,8 +62,10 @@ addTwoNumbers('Hello', 5) //=> NaN
 // Your solution for 02-addTwoNumbers here:
 
 function addTwoNumbers(x, y) {
-  return x + y;
+  return (typeof(x) === 'string' || typeof(y) == 'string') ? NaN : x + y
 }
+
+console.log(addTwoNumbers(5, 7))
 
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
