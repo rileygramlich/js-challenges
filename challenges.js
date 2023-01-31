@@ -62,7 +62,7 @@ addTwoNumbers('Hello', 5) //=> NaN
 // Your solution for 02-addTwoNumbers here:
 
 function addTwoNumbers(x, y) {
-  return (typeof(x) === 'string' || typeof(y) == 'string') ? NaN : x + y
+  return typeof x === "string" || typeof y == "string" ? NaN : x + y;
 }
 
 // console.log(addTwoNumbers(5, 7))
@@ -203,7 +203,7 @@ function reverseUpcaseString(string) {
   for (let i = string.length - 1; i >= 0; i--) {
     reverseString += string[i];
   }
-  return reverseString.toUpperCase()
+  return reverseString.toUpperCase();
 }
 
 // console.log(reverseUpcaseString("piano"))
@@ -319,12 +319,12 @@ isPalindrome(''); //=> true
 // Your solution for 11-isPalindrome here:
 
 function isPalindrome(string) {
-  string = string.toLowerCase()
-  string = string.includes(' ') ? string.replace(/ /g, '') : string
+  string = string.toLowerCase();
+  string = string.includes(" ") ? string.replace(/ /g, "") : string;
   for (let i = 0; i < Math.floor(string.length / 2); i++) {
-    if (string.charAt(i) !== string.charAt(string.length - i -1)) return false
-    return true
+    if (string.charAt(i) !== string.charAt(string.length - i - 1)) return false;
   }
+  return true;
 }
 
 // console.log(isPalindrome('A nut for a jar of tuna'))
@@ -447,20 +447,17 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44});  //=> {a: 1, b: 22, c:
 -----------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
 
-function mergeObjects() {
-  let args = Array.from(arguments);
-  let mainObj = args[0];
-  for (let i = 1; i < args.length; i++) {
-    for (key in args[i]) {
-      let curObj = args[i];
-      let value = curObj[key];
-      mainObj[key] = value;
+function mergeObjects(mainObj, ...objects) {
+  for (let i = 0; i < objects.length; i++) {
+    for (let key in objects[i]) {
+      let currObj = objects[i];
+      mainObj[key] = currObj[key];
     }
-    return mainObj;
   }
+  return mainObj;
 }
 
-// console.log(mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44}, {hi: 700}))
+// console.log(mergeObjects({a: 1, b: 2, c: 3}, {d: 4}));
 
 /*-----------------------------------------------------------------
 Challenge: 16-findHighestPriced
@@ -1084,7 +1081,7 @@ function totalTaskTime(queue, threads) {
   if (queue.length === 0) return 0;
   queue.sort(function (a, b) {
     return b - a;
-  })
+  });
   let taskTime = 0;
   for (let i = 0; i < queue.length; i += threads) {
     taskTime += queue[i];
