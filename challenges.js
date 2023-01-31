@@ -1014,7 +1014,7 @@ function gridTrip(coords, moves) {
 }
 
 
-console.log(gridTrip([-22, 100], "L2L15D50U1D9"));
+// console.log(gridTrip([-22, 100], "L2L15D50U1D9"));
 
 /*-----------------------------------------------------------------
 Challenge: 29-addChecker
@@ -1041,6 +1041,21 @@ addChecker( [10, 15, 16, 22], 32 ) // => true
 addChecker( [10, 15, 16, 22], 19 ) // => false
 -----------------------------------------------------------------*/
 // Your solution for 29-addChecker here:
+
+
+function addChecker(array, int) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = array.length - 1; j >= 0; j--) {
+      console.log(array[i], array[j])
+      if (array[i] + array[j] === int && i !== j) return true
+    }
+  }
+  return false
+}
+
+
+// console.log(addChecker([2, 3], 4))
+
 
 /*-----------------------------------------------------------------
 Challenge: 30-totalTaskTime
