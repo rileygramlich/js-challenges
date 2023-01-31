@@ -668,15 +668,14 @@ isPrime(200) //=> false
 // Your solution for 20-isPrime here:
 
 function isPrime(num) {
-  for (let i = 2; i < num; i++) {
-    if (num % i === 0) {
-      return false;
-    }
+  if (num <= 1 || !Number.isInteger(num)) return false
+  for (let i = 2; i <= num /2; i++) {
+    if (num % i === 0) return false
   }
   return true;
 }
 
-// console.log(isPrime(67))
+// console.log(isPrime(61))
 
 /*-----------------------------------------------------------------
 Challenge: 21-primeFactors
