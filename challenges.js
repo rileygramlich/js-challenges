@@ -1046,7 +1046,6 @@ addChecker( [10, 15, 16, 22], 19 ) // => false
 function addChecker(array, int) {
   for (let i = 0; i < array.length; i++) {
     for (let j = array.length - 1; j >= 0; j--) {
-      console.log(array[i], array[j])
       if (array[i] + array[j] === int && i !== j) return true
     }
   }
@@ -1054,7 +1053,17 @@ function addChecker(array, int) {
 }
 
 
-// console.log(addChecker([2, 3], 4))
+function addChecker2(array, int) {
+  let end = array.length - 1
+  for (let start = 0; start < end; start++) {
+    let sum = array[start] + array[end]
+    if (sum === int) return true
+    sum < int ? start++ : end--
+  }
+  return false
+}
+
+// console.log(addChecker2([10, 15, 16, 22], 32 ))
 
 
 /*-----------------------------------------------------------------
