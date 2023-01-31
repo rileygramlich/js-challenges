@@ -65,7 +65,7 @@ function addTwoNumbers(x, y) {
   return (typeof(x) === 'string' || typeof(y) == 'string') ? NaN : x + y
 }
 
-console.log(addTwoNumbers(5, 7))
+// console.log(addTwoNumbers(5, 7))
 
 /*-----------------------------------------------------------------
 Challenge: 03-sumNumbers
@@ -203,10 +203,10 @@ function reverseUpcaseString(string) {
   for (let i = string.length - 1; i >= 0; i--) {
     reverseString += string[i];
   }
-  return reverseString;
+  return reverseString.toUpperCase()
 }
 
-// console.log(reverseUpcaseString("piano"))
+console.log(reverseUpcaseString("piano"))
 
 /*-----------------------------------------------------------------
 Challenge: 08-removeEnds
