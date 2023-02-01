@@ -900,17 +900,12 @@ toCamelCase( 'A_b_c' ) // => 'ABC'
 // Your solution for 26-toCamelCase here:
 
 function toCamelCase(string) {
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === "-" || string[i] === "_") {
-      string = string.replace(string[i + 1], string[i + 1].toUpperCase());
-    }
-  }
-  string = string.replace(/-/g, "");
-  string = string.replace(/_/g, "");
-  return string;
+  return string.replace(/[_-]\w/g, function(match) {
+    return match.charAt(1).toUpperCase()
+  })
 }
 
-// console.log(toCamelCase('wdi-rocks'))
+// console.log(toCamelCase('A_b_c'))
 
 /*-----------------------------------------------------------------
 Challenge: 27-countTheBits
