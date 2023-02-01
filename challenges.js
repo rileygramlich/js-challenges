@@ -718,7 +718,7 @@ function primeFactors(num) {
   return arrayOfPrimes;
 }
 
-console.log(primeFactors(200));
+// console.log(primeFactors(200));
 
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
@@ -742,12 +742,15 @@ intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 // Your solution for 22-intersection here:
 
 function intersection(array1, array2) {
-  let newArray = array1.filter((el) => array2.includes(el));
-  console.log(newArray);
+  let newArray = []
+  let shorterArr = array1.length < array2.length ? array1 : array2
+  let longerArr = array1.length > array2.length ? array1 : array2
+  console.log(longerArr)
+  newArray = shorterArr.filter((el) => longerArr.includes(el));
   return newArray;
 }
 
-// intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1])
+// console.log(intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]))
 
 /*-----------------------------------------------------------------
 Challenge: 23-balancedBrackets
@@ -774,32 +777,21 @@ balancedBrackets( '[({}[])]' ) // => true
 // First instinct: have an array loop, boolean value
 
 function balancedBrackets(brackets) {
+  if (brackets.length % 2) return false;
   let stack = [];
   for (let i = 0; i < brackets.length; i++) {
     let brac = brackets[i];
-    if (brac == "(" || brac == "[" || brac == "{") {
+    console.log(brac)
+    if ('([{'.includes(brac)) {
       stack.push(brac);
-      continue;
-    }
-    if (stack.length == 0) return false;
-    let curr = stack.pop();
-    console.log(curr);
-    if (brac == ")") {
-      if (curr == "[" || curr == "{") return false;
-      break;
-    } else if (curr == "]") {
-      if (curr == "(" || curr == "{") return false;
-      break;
-    } else if (curr == "}") {
-      if (curr == "[" || curr == "(") return false;
-      break;
+    } else {
+      if (!'() [] {}'.includes(stack.pop() + brac)) return false
     }
   }
-  console.log(stack);
-  return stack.length == 0;
+  return true
 }
 
-// console.log(balancedBrackets("[{[]{}}]"));
+// console.log(balancedBrackets("[{}()f]"));
 
 /*-----------------------------------------------------------------
 Challenge: 24-isWinningTicket
