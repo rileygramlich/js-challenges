@@ -668,9 +668,9 @@ isPrime(200) //=> false
 // Your solution for 20-isPrime here:
 
 function isPrime(num) {
-  if (num <= 1 || !Number.isInteger(num)) return false
-  for (let i = 2; i <= num /2; i++) {
-    if (num % i === 0) return false
+  if (num <= 1 || !Number.isInteger(num)) return false;
+  for (let i = 2; i <= num / 2; i++) {
+    if (Number.isInteger(num / i)) return false;
   }
   return true;
 }
@@ -703,17 +703,22 @@ primeFactors(200) //=> [2, 2, 2, 5, 5]
 
 function primeFactors(num) {
   let arrayOfPrimes = [];
-  for (let i = 2; i < num; i++) {
-    if (num % i === 0) {
-      if (isPrime(i)) {
-        arrayOfPrimes.push(i);
-      }
+  if (num < 2 || !Number.isInteger(num)) return arrayOfPrimes;
+  let prime = 2;
+  while (!isPrime(num)) {
+    if (Number.isInteger(num / prime)) {
+      arrayOfPrimes.push(prime);
+      num = num / prime;
+    } else {
+      prime++;
+      while (!isPrime(prime)) prime++;
     }
   }
+  arrayOfPrimes.push(num);
   return arrayOfPrimes;
 }
 
-// console.log(primeFactors(105))
+console.log(primeFactors(200));
 
 /*-----------------------------------------------------------------
 Challenge: 22-intersection
